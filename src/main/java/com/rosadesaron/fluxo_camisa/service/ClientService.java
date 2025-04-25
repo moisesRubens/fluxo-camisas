@@ -16,6 +16,7 @@ public class ClientService {
         Client client = new Client();
         client.setName(data.name());
         client.setEmail(data.email());
+
         clientRepository.save(client);
         return client;
     }

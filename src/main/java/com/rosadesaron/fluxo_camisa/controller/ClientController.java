@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/fluxo/client")
 public class ClientController {
     @Autowired
-    ClientService clientService;
+    private ClientService clientService;
 
     @PostMapping
     public ResponseEntity<Client> create(@RequestBody RequestClientDTO data) {
