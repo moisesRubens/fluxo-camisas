@@ -36,9 +36,8 @@ public class OrderService {
         Client client = clientRepository.findById(data.idClient())
                 .orElseThrow(() -> new IllegalArgumentException("Id de cliente invalido"));
         order.setClient(client);
-        order.setClient(client);
 
-        Double totalValue = 0.0;
+        double totalValue = 0.0;
         for(RequestItemOrderDTO dto : data.items()) {
             ItemOrder itemOrder = itemOrderService.create(dto);
             order.addItemOrder(itemOrder);

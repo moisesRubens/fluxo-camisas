@@ -18,7 +18,7 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping
-    public Order doOrder(RequestOrderDTO data) throws InsufficientStockException {
+    public Order generateOrder(RequestOrderDTO data) throws InsufficientStockException {
         return orderService.generateOrder(data);
     }
 }

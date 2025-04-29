@@ -4,6 +4,7 @@ import com.rosadesaron.fluxo_camisa.domain.shirt.Shirt;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Persistent;
 
 import java.util.UUID;
 
@@ -11,7 +12,6 @@ import java.util.UUID;
 @Table(name = "order_item")
 @Getter
 @Setter
-
 public class ItemOrder {
     @Id
     private UUID id;
@@ -24,6 +24,7 @@ public class ItemOrder {
     @ManyToOne
     private Order order;
 
+    @Persistent
     private Double unitValue;
     private Integer quantity;
 }

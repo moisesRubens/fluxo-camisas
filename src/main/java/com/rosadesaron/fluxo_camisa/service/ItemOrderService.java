@@ -19,9 +19,6 @@ public class ItemOrderService {
     @Autowired
     private ShirtRepository shirtRepository;
 
-    @Autowired
-    private OrderRepository orderRepository;
-
     public ItemOrder create(RequestItemOrderDTO data) {
         ItemOrder itemOrder = new ItemOrder();
         itemOrder.setQuantity(data.quantity());
@@ -30,6 +27,8 @@ public class ItemOrderService {
                 .orElseThrow(() -> new IllegalArgumentException("id da camisa nao encontrado"));
         itemOrder.setShirt(shirt);
         itemOrder.setUnitValue(shirt.getPrice());
+
+        itemOrderRepository.save(itemOrder);
         return itemOrder;
     }
 }
