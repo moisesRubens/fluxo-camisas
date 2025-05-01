@@ -25,8 +25,10 @@ public class Shirt {
     private String imgUrl;
     private int quantity;
     private char size;
-    private boolean collar;
-    private boolean sleeve;
+    private Boolean collar;
+    private Boolean sleeve;
     private double price;
     private String color;
+
+
 }
