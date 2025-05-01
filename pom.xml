@@ -69,8 +69,11 @@
 			<artifactId>flyway-database-postgresql</artifactId>
 			<version>11.3.4</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>1.12.700</version> <!-- use a última versão estável disponível -->
+		</dependency>
 	</dependencies>
 
 	<build>

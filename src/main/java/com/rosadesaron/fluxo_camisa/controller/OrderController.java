@@ -20,7 +20,7 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<OrderResponseDTO> generateOrder(OrderRequestDTO data) {
+    public OrderResponseDTO generateOrder(OrderRequestDTO data) {
         Order order = orderService.generateOrder(data);
         List<ItemOrderResponseDTO> itemOrderResponseDTOList = new ArrayList<>();
 
@@ -33,6 +33,6 @@ public class OrderController {
                                                                 itemOrderResponseDTOList, order.getTotalValue(),
                                                                 order.getDate());
 
-        return ResponseEntity.ok(orderResponseDTO);
+        return orderResponseDTO;
     }
 }

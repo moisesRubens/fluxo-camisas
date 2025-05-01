@@ -22,10 +22,11 @@ public class Shirt {
     @GeneratedValue
     private UUID id;
 
-    private Integer quantity;
-    private Integer size;
-    private Boolean collar;
-    private Boolean sleeve;
-    private Double price;
+    private String imgUrl;
+    private int quantity;
+    private char size;
+    private boolean collar;
+    private boolean sleeve;
+    private double price;
     private String color;
 }
