@@ -25,6 +25,7 @@ public class ShirtController {
                                         @RequestParam("color")String color,
                                         @RequestParam(value = "img", required = false)MultipartFile img) {
         ShirtRequestDTO data = new ShirtRequestDTO(color, sleeve, collar, quantity, size, price, img);
-        return ResponseEntity.ok(shirtService.create(data));
+        Shirt shirt = shirtService.create(data);
+        return ResponseEntity.ok(shirt);
     }
 }
