@@ -20,4 +20,9 @@ public class ClientController {
         ClientResponseDTO clientResponseDTO = new ClientResponseDTO(client.getName(), client.getEmail(), client.getId());
         return clientResponseDTO;
     }
+
+    @GetMapping
+    public ClientResponseDTO getClient(@RequestParam("name")String name, @RequestParam("email") String email) {
+        return clientService.getClient(name, email);
+    }
 }
