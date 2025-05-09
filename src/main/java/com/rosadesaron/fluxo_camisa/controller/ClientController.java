@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/fluxo/client")
 public class ClientController {
@@ -24,5 +26,10 @@ public class ClientController {
     @GetMapping
     public ClientResponseDTO getClient(@RequestParam("name")String name, @RequestParam("email") String email) {
         return clientService.getClient(name, email);
+    }
+
+    @GetMapping("/{id}")
+    public ClientResponseDTO getClientById(@PathVariable("id") UUID id) {
+        return clientService.getClientById(id);
     }
 }
