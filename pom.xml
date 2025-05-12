@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rosadesaron</groupId>
-	<artifactId>fluxo-camisa</artifactId>
+	<artifactId>fluxo-camisas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>fluxo-camisa</name>
+	<name>fluxo-camisas</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<flyway.url>jdbc:postgresql://localhost:5432/fluxocamisas</flyway.url>
+		<flyway.url>jdbc:postgresql://localhost:5432/db-fluxo-camisas</flyway.url>
 		<flyway.user>moisesRubens</flyway.user>
 		<flyway.password>Admin</flyway.password>
 		<java.version>21</java.version>

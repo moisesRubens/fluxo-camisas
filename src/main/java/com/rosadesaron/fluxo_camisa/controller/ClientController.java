@@ -32,4 +32,9 @@ public class ClientController {
     public ClientResponseDTO getClientById(@PathVariable("id") UUID id) {
         return clientService.getClientById(id);
     }
+
+    @PostMapping("delete")
+    public void deleteClient(@RequestParam UUID id) {
+        clientService.deleteClient(id);
+    }
 }

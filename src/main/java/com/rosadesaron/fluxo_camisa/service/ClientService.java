@@ -7,6 +7,7 @@ import com.rosadesaron.fluxo_camisa.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.UUID;
 
 @Service
@@ -31,5 +32,9 @@ public class ClientService {
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException());
         return new ClientResponseDTO(client.getName(), client.getEmail(), client.getId());
+    }
+
+    public void deleteClient(UUID id) {
+        clientRepository.deleteAllById(Collections.singleton(id));
     }
 }
