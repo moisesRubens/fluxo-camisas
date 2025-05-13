@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface ClientRepository extends JpaRepository<Client, UUID> {
     @Query(
-            "SELECT e FROM Client e WHERE e.name = :name AND e.email = :email"
+            "SELECT e FROM Client e WHERE e.name LIKE %:name% AND e.email LIKE %:email%"
     )
     public Client findClient(String name, String email);
 
