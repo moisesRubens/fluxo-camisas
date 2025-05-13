@@ -23,14 +23,9 @@ public class ClientController {
         return clientResponseDTO;
     }
 
-    @GetMapping
-    public ClientResponseDTO getClient(@RequestParam("name")String name, @RequestParam("email") String email) {
-        return clientService.getClient(name, email);
-    }
-
     @GetMapping("/{id}")
-    public ClientResponseDTO getClientById(@PathVariable("id") UUID id) {
-        return clientService.getClientById(id);
+    public ClientResponseDTO getClient(@PathVariable("id") UUID id) {
+        return clientService.getClient(id);
     }
 
     @PostMapping("delete")
