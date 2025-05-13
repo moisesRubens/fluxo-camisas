@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
@@ -25,7 +26,7 @@ public class ClientService {
 
     public ClientResponseDTO getClient(UUID id) {
         Client client = clientRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Client not found"));
+                .orElseThrow(() -> new NoSuchElementException("Client not found"));
         return new ClientResponseDTO(client.getName(), client.getEmail(), client.getId());
     }
 

@@ -8,6 +8,8 @@ import com.rosadesaron.fluxo_camisa.repository.ShirtRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class ItemOrderService {
 
@@ -22,7 +24,7 @@ public class ItemOrderService {
         itemOrder.setQuantity(data.quantity());
 
         Shirt shirt = shirtRepository.findById(data.idShirt())
-                .orElseThrow(() -> new IllegalArgumentException("id da camisa nao encontrado"));
+                .orElseThrow(() -> new NoSuchElementException("id da camisa nao encontrado"));
         itemOrder.setShirt(shirt);
         itemOrder.setUnitValue(shirt.getPrice());
 

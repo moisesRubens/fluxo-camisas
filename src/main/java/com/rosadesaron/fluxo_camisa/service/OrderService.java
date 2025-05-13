@@ -28,7 +28,7 @@ public class OrderService {
         order.setDate(new Date(data.date()));
 
         Client client = clientRepository.findById(data.idClient())
-                .orElseThrow(() -> new IllegalArgumentException("Id de cliente invalido"));
+                .orElseThrow(() -> new NoSuchElementException("Id de cliente invalido"));
         order.setClient(client);
 
         double totalValue = 0.0;
