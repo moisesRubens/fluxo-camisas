@@ -18,6 +18,7 @@ import java.awt.print.PageFormat;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -80,5 +81,16 @@ public class ShirtService {
                                                             shirt.getColor(), shirt.getPrice(),
                                                             shirt.getQuantity(), shirt.getSize(),
                                                             shirt.getId(), shirt.getImgUrl())).stream().toList();
+    }
+
+    public List<ShirtResponseDTO> getShirtsByPrice(int page, int size, double price) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Shirt> shirts = shirtRepository.getShirtsByPrice(pageable, price);
+
+        return shirts.map( shirt -> new ShirtResponseDTO(
+                shirt.getSleeve(), shirt.getCollar(), shirt.getColor(),
+                shirt.getPrice(), shirt.getQuantity(), shirt.getSize(),
+                shirt.getId(), shirt.getImgUrl()
+        )).stream().toList();
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -41,5 +42,10 @@ public class ShirtController {
     @GetMapping("/all")
     public ResponseEntity<List<ShirtResponseDTO>> getAllShirts(@RequestParam("page") int page, @RequestParam("size") int size) {
         return ResponseEntity.ok(shirtService.getAllShirts(page, size));
+    }
+
+    @GetMapping("/{brand}")
+    public List<ShirtResponseDTO> getShirtsByBrand(@RequestParam("page") int page, @RequestParam("size") int size, @PathVariable double price) {
+        return shirtService.getShirtsByPrice(page, size, price);
     }
 }
